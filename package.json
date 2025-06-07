@@ -22,9 +22,9 @@
   "files": [
     "dist/**/*"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["google-sheets", "spreadapi", "spreadsheet"],
+  "author": "Krishna Mohan A M <krishnamohan.a.m@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.15.30",
     "tsup": "^8.5.0",
