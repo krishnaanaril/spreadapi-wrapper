@@ -1,6 +1,6 @@
 {
   "name": "spreadapi-wrapper",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1",
   "description": "A wrapper for the Spread API",
   "type": "module",
   "main": "./dist/index.cjs",   

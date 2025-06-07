@@ -27,8 +27,6 @@ export class SpreadClient {
             });
 
             if (!response.ok) {
-                console.log("Error response:", response);
-                console.log("Request body:", JSON.stringify(requests, null, 2));
                 throw new Error(`HTTP error! status: ${response.status}`);
             }            
             return await response.json();
