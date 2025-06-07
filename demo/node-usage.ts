@@ -19,9 +19,9 @@ const newPeople: Person[] = [
   { Name: 'Gadha Mohan', Age: 68 }
 ];
 
-// client.getRow<Person>(35)
-//   .then(response => console.log('Row 35:', response))
-//   .catch(error => console.error('Error fetching row 35:', error));
+client.getRow<Person>(35)
+  .then(response => console.log('Row 35:', response))
+  .catch(error => console.error('Error fetching row 35:', error));
 
 // client.insertRows<Person>(newPeople)
 //   .then(responses => {
@@ -35,11 +35,11 @@ const newPeople: Person[] = [
 //   })
 //   .catch(error => console.error('Batch insert failed:', error));
 
-client.getRows<Person[]>({limit: 10})
-  .then(response => response.forEach((row, index) => {
-    console.log(row.status, row.data ? row.data : `Row ${index + 1} not found`, row.error ? `Error: ${row.error.code}` : '');
-  }))
-  .catch(error => console.error('Error fetching all rows:', error));
+// client.getRows<Person[]>({limit: 10})
+//   .then(response => response.forEach((row, index) => {
+//     console.log(row.status, row.data ? row.data : `Row ${index + 1} not found`, row.error ? `Error: ${row.error.code}` : '');
+//   }))
+//   .catch(error => console.error('Error fetching all rows:', error));
 
 // fetch("https://script.google.com/macros/s/AKfycbyZSjAKBBt2kLpqpyCil9WTFUHUg8nnKRTnkw_v5f5RBBZp02QV2uVu_owPKg5AAUbG/exec", {
 //   method: "POST",  
