@@ -81,6 +81,44 @@ describe('SpreadClient', () => {
         });
     });
 
+    describe('getRows', () => {
+        it('should retrieve multiple rows successfully', async () => {
+            const mockConfig: SpreadApiConfig = {
+                sheetUrl: 'https://example.com/spreadsheet',
+                sheetName: 'TestSheet',
+                accessKey: 'test-key'
+            };
+            const client = new SpreadClient(mockConfig);
+            const mockRows = [{ id: 1, name: 'John Doe' }, { id: 2, name: 'Jane Doe' }];
+
+            // Mock the fetch response
+            global.fetch = jest.fn().mockResolvedValue({
+                ok: true,
+                json: jest.fn().mockResolvedValue({ success: true, data: mockRows })
+            });
+
+            const response = await client.getRows();
+            expect(response).toEqual({ success: true, data: mockRows });
+        });
+
+        it('should throw an error on failed request', async () => {
+            const mockConfig: SpreadApiConfig = {
+                sheetUrl: 'https://example.com/spreadsheet',
+                sheetName: 'TestSheet',
+                accessKey: 'test-key'
+            };
+            const client = new SpreadClient(mockConfig);
+
+            // Mock the fetch response to simulate an error
+            global.fetch = jest.fn().mockResolvedValue({
+                ok: false,
+                status: 500
+            });
+
+            await expect(client.getRows()).rejects.toThrow('SpreadAPI batch request failed');
+        });
+    });
+
     describe('updateRow', () => {
         it('should update a row successfully', async () => {
             const mockConfig: SpreadApiConfig = {
