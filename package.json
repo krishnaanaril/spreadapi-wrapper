@@ -2,15 +2,30 @@
   "name": "spreadapi-wrapper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "umd:main": "dist/index.umd.js",
+  "unpkg": "dist/index.min.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.15.30",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

@@ -9,10 +9,16 @@ export interface SpreadApiRequest<T = any> {
 
 export interface SpreadApiBatchRequest<T = any> extends Array<SpreadApiRequest<T>> {}
 
+export interface ErrorInfo {
+    code: string;
+    details?: any; // Optional, can include more specific error details
+  }
+
+
 export interface SpreadApiResponse<T = any> {
-  success: boolean;
+  status: number;
   data?: T;
-  error?: string;
+  error?: ErrorInfo;
 }
 
 export interface SpreadApiBatchResponse<T = any> extends Array<SpreadApiResponse<T>> {}
